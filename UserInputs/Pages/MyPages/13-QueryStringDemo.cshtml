@@ -1,0 +1,21 @@
+﻿@page
+@model UserInputs.Pages.MyPages.QueryStringDemoModel
+
+<h1>Student Info System - Query String Redirect</h1>
+
+<div>
+    <p>Enter your information:</p>
+
+    @* This form uses POST first, then the server redirects to a GET URL. *@
+    <form method="post">
+        <label for="studentName">Name:</label>
+        <input id="studentName"
+               name="studentName"
+               type="text"
+               class="form-control input-group-lg" />
+
+        <input type="submit"
+               value="Submit"
+               class="btn btn-info" />
+    </form>
+</div>

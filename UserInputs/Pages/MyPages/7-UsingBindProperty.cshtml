@@ -1,0 +1,28 @@
+﻿@page
+@model UserInputs.Pages.MyPages.UsingBindPropertyModel
+
+<h1>Student Info System - Using BindProperty</h1>
+
+<div>
+    <p>Enter your information:</p>
+
+    <form method="post">
+        @* asp-for generates the correct name and id from the C# property. *@
+        <label asp-for="StudentName">Name:</label>
+        <input asp-for="StudentName"
+               class="form-control input-group-lg" />
+
+        <label asp-for="StudentId">Student Number:</label>
+        <input asp-for="StudentId"
+               class="form-control input-group-lg" />
+
+        <input type="submit"
+               value="Submit"
+               class="btn btn-info" />
+    </form>
+</div>
+
+<div>
+    <h2>Student Information Received</h2>
+    <p>@ViewData["stdData"]</p>
+</div>

@@ -1,0 +1,27 @@
+﻿@page
+@model UserInputs.Pages.MyPages.IndexModel
+
+@* This page has a matching PageModel: Index.cshtml.cs. *@
+
+<h1>Student Info System</h1>
+
+<div>
+    <p>Enter your information:</p>
+
+    @* method="post" sends form values in the HTTP request body. *@
+    <form method="post">
+        <label for="studentName">Name:</label>
+        <input id="studentName"
+               name="studentName"
+               type="text"
+               class="form-control input-group-lg" />
+
+        @* A submit input sends the form to the OnPost handler. *@
+        <input type="submit"
+               value="Submit"
+               class="btn btn-info" />
+    </form>
+</div>
+
+@* The PageModel supplies this value after OnPost runs. *@
+<p>Show name: @Model.StudentName</p>

@@ -1,0 +1,39 @@
+﻿@page
+@model UserInputs.Pages.MyPages.UsingRequestQueryModel
+
+@* This page demonstrates reading values from a URL query string. *@
+
+<h1>Student Info System - Using Request.Query</h1>
+
+<div>
+    <p>Enter your information:</p>
+
+    @* method="get" sends form values as query-string parameters in the URL.
+       Example:
+       /UsingRequestQuery?studentName=Alex&studentId=123456 *@
+    <form method="get">
+        <label for="studentName">Name:</label>
+        <input id="studentName"
+               name="studentName"
+               type="text"
+               class="form-control input-group-lg" />
+
+        <label for="studentId">Student Number:</label>
+        <input id="studentId"
+               name="studentId"
+               type="text"
+               class="form-control input-group-lg" />
+
+        @* Clicking Submit causes Razor Pages to run the OnGet method. *@
+        <input type="submit"
+               value="Submit"
+               class="btn btn-info" />
+    </form>
+</div>
+
+<div>
+    <h2>Student Information Received</h2>
+
+    @* ViewData is populated in the PageModel OnGet method. *@
+    <p>@ViewData["stdData"]</p>
+</div>

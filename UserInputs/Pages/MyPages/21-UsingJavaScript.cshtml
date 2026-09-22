@@ -1,0 +1,50 @@
+﻿@page
+@model UserInputs.Pages.MyPages.UsingJavaScriptModel
+
+@* This example handles input in the browser using JavaScript. *@
+
+<script>
+    function showInfo() {
+        // getElementById finds an HTML element by its id attribute.
+        // .value retrieves the text the user entered.
+        const studentName = document.getElementById("studentName").value;
+        const studentId = document.getElementById("studentId").value;
+
+        // encodeURIComponent safely handles spaces and special characters.
+        // Example: "Mary Jane" becomes "Mary%20Jane" in the URL.
+        //
+        // Query-string data is visible in the browser URL.
+        // Do not place passwords, grades, tokens, or other sensitive data here.
+        const url =
+            `DisplayMultiple?studentName=${encodeURIComponent(studentName)}` +
+            `&studentId=${encodeURIComponent(studentId)}`;
+
+        // This sends the browser to the DisplayMultiple Razor Page.
+        window.location.href = url;
+    }
+</script>
+
+<h1>Student Info System - Using JavaScript</h1>
+
+<div>
+    <p>Enter your information:</p>
+
+    <label for="studentName">Name:</label>
+    <input id="studentName"
+           name="studentName"
+           type="text"
+           class="form-control input-group-lg" />
+
+    <label for="studentId">Student Number:</label>
+    <input id="studentId"
+           name="studentId"
+           type="text"
+           class="form-control input-group-lg" />
+
+    @* type="button" prevents the button from behaving as a form submit button. *@
+    <button type="button"
+            class="btn btn-info"
+            onclick="showInfo()">
+        Submit
+    </button>
+</div>
