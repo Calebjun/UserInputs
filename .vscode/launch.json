@@ -5,11 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "editor-browser",
+            "name": "Launch UserInputs",
+            "type": "coreclr",
             "request": "launch",
-            "name": "Launch Integrated Browser against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/UserInputs/bin/Debug/net8.0/UserInputs.dll",
+            "cwd": "${workspaceFolder}/UserInputs",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5071"
+            }
         }
     ]
 }
